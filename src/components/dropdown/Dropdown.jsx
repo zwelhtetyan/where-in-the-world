@@ -16,31 +16,11 @@ const Dropdown = () => {
                 </button>
 
                 <ul className='dropdown-menu' aria-labelledby='filter-country'>
-                    <li>
-                        <a className='dropdown-item' href='#'>
-                            Africa
-                        </a>
-                    </li>
-                    <li>
-                        <a className='dropdown-item' href='#'>
-                            America
-                        </a>
-                    </li>
-                    <li>
-                        <a className='dropdown-item' href='#'>
-                            Asia
-                        </a>
-                    </li>
-                    <li>
-                        <a className='dropdown-item' href='#'>
-                            Europe
-                        </a>
-                    </li>
-                    <li>
-                        <a className='dropdown-item' href='#'>
-                            Oceania
-                        </a>
-                    </li>
+                    <li className='dropdown-item'>Africa</li>
+                    <li className='dropdown-item'>America</li>
+                    <li className='dropdown-item'>Asia</li>
+                    <li className='dropdown-item'>Europe</li>
+                    <li className='dropdown-item'>Oceania</li>
                 </ul>
             </div>
         </div>

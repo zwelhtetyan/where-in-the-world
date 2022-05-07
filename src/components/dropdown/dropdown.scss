@@ -18,7 +18,7 @@
             background-color: $dark-mode-element;
             font-size: 15px;
 
-            li a {
+            li {
                 color: $dark-mode-text-color;
                 &:hover {
                     background-color: $bg_dark;
@@ -37,7 +37,7 @@
     }
     .dropdown-menu {
         background-color: $dark-mode-text-color;
-        li a {
+        li {
             color: $light-mode-text-color;
             &:hover {
                 background-color: $light-mode-input;
