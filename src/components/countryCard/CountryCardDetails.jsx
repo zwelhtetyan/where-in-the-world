@@ -1,6 +1,7 @@
 import React from 'react';
 import { BiArrowBack, BiJoystick } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
+import './countryCardDetails.scss';
 
 const CountryCardDetails = ({
     data,
@@ -30,7 +31,7 @@ const CountryCardDetails = ({
         const borderingCountriesPNG = [];
         const countries = borders.map((c) => c);
         countries.forEach((country) => {
-            data.data.forEach((data) => {
+            data.forEach((data) => {
                 if (data.alpha3Code === country) {
                     borderingCountriesPNG.push({
                         flag: data.flags.png,
@@ -100,21 +101,32 @@ const CountryCardDetails = ({
                                     </span>
                                 )}
                                 <div className='d-flex align-item-center justify-content-center flex-wrap'>
-                                    {borders
-                                        ? getBorderCountries(borders).map(
-                                              (obj) => (
-                                                  <Link
-                                                      key={obj.alpha3Code}
-                                                      to={`/${obj.alpha3Code}`}
-                                                  >
-                                                      <img
-                                                          src={obj.flag}
-                                                          className='border__country'
-                                                      />
-                                                  </Link>
-                                              )
-                                          )
-                                        : 'NO BORDERING COUNTRIES'}
+                                    {borders ? (
+                                        getBorderCountries(borders).map(
+                                            (obj) => (
+                                                <Link
+                                                    key={obj.alpha3Code}
+                                                    to={`/${obj.alpha3Code}`}
+                                                >
+                                                    <img
+                                                        src={obj.flag}
+                                                        className='border__country'
+                                                    />
+                                                </Link>
+                                            )
+                                        )
+                                    ) : (
+                                        <span
+                                            style={{
+                                                fontWeight: '300',
+                                                letterSpacing: '1px',
+                                                textTransform: 'capitalize',
+                                                fontSize: '13px',
+                                            }}
+                                        >
+                                            no bordering countries
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </div>

@@ -7,83 +7,9 @@
 .main-container {
     background-color: $bg-dark;
     color: $dark-mode-text-color;
-
-    .detail__card {
-        min-height: calc(100vh - 57px);
-        padding: 3rem;
-
-        .back__button {
-            display: inline-block;
-            margin-bottom: 3rem;
-            background-color: $dark-mode-element;
-            padding: 0.5rem 1.5rem;
-            margin-left: 12px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .inner__card {
-            .inner__card__img {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                img {
-                    width: 90%;
-                    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-                        rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-                }
-            }
-            .inner__card__body {
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                justify-content: center;
-                .inner__card-title {
-                    text-align: center;
-                    margin-bottom: 2rem;
-                }
-
-                &__left {
-                    p {
-                        font-weight: 500;
-                        span {
-                            font-weight: 300;
-                        }
-                    }
-                }
-
-                &__right {
-                    p {
-                        font-weight: 500;
-                        span {
-                            font-weight: 300;
-                        }
-                    }
-                }
-                .border__countries .border__country {
-                    width: 45px;
-                    height: 25px;
-                    margin: 5px;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
 }
 
 .main-container.light-mode {
     background-color: $bg-light;
     color: $light-mode-text-color;
-}
-
-@media screen and (max-width: 1000px) {
-    .inner__card__img img {
-        width: 100% !important;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .detail__card {
-        padding: 1rem !important;
-    }
 }

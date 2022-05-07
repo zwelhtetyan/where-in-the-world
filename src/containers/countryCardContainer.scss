@@ -16,6 +16,7 @@
         width: 100%;
         height: calc(100vh - 161px);
         text-align: center;
+        letter-spacing: 1px;
     }
     .country-card-link {
         color: unset;
@@ -23,5 +24,11 @@
         &:hover {
             color: unset;
         }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .err-message-container {
+        font-size: 15px;
     }
 }
