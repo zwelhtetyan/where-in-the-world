@@ -1,0 +1,15 @@
+@import './index.scss';
+
+.bg_light {
+    background-color: $bg-light;
+}
+
+.main-container {
+    background-color: $bg-dark;
+    color: $dark-mode-text-color;
+}
+
+.main-container.light-mode {
+    background-color: $bg-light;
+    color: $light-mode-text-color;
+}

@@ -1,0 +1,50 @@
+@import '../../index.scss';
+
+.navbar {
+    background-color: $dark-mode-element;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+
+    .mode {
+        background-color: #4d4d4d;
+        padding: 0 2px;
+        border-radius: 12px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+
+        span {
+            display: block;
+        }
+        .sun {
+            margin-right: 7px;
+        }
+
+        .ball {
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            background-color: $dark-mode-text-color;
+            position: absolute;
+            left: 2;
+            top: 1px;
+        }
+        .ball-right {
+            right: 3px;
+            left: unset;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .day-night p {
+        display: none;
+    }
+}
+
+.light-mode .navbar {
+    background-color: $dark-mode-text-color;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

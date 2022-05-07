@@ -1,0 +1,53 @@
+@import '../../index.scss';
+
+.dropdown_container {
+    .dropdown {
+        background-color: $dark-mode-element;
+        border-radius: 5px;
+        button {
+            color: $dark-mode-text-color;
+            font-size: 15px;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .dropdown-menu {
+            background-color: $dark-mode-element;
+            font-size: 15px;
+
+            li a {
+                color: $dark-mode-text-color;
+                &:hover {
+                    background-color: $bg_dark;
+                }
+            }
+        }
+    }
+}
+
+.light-mode .dropdown {
+    background-color: $dark-mode-text-color;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    button {
+        color: $light-mode-text-color;
+    }
+    .dropdown-menu {
+        background-color: $dark-mode-text-color;
+        li a {
+            color: $light-mode-text-color;
+            &:hover {
+                background-color: $light-mode-input;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .dropdown_container {
+        margin-top: 1rem;
+    }
+}

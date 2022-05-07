@@ -1,0 +1,73 @@
+@import '../index.scss';
+
+.country_card_container {
+    .loader_container {
+        width: 100%;
+        height: calc(100vh - 161px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            margin-top: -5rem;
+        }
+    }
+    .err-message-container {
+        width: 100%;
+        height: calc(100vh - 161px);
+        text-align: center;
+    }
+
+    .country__card {
+        margin-bottom: 2rem;
+        .inner__card {
+            border-radius: 3px;
+            overflow: hidden;
+            width: 100%;
+
+            &-img img {
+                width: 100%;
+                height: 163px;
+            }
+
+            &__body {
+                background-color: $dark-mode-element;
+                padding: 1rem;
+
+                &-title {
+                    letter-spacing: 1px;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    margin-bottom: 5px !important;
+                    span {
+                        font-weight: 200;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.light-mode .country__card {
+    .inner__card {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    }
+    .inner__card__body {
+        background-color: $dark-mode-text-color !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .inner__card-img img {
+        height: 200px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .inner__card-img img {
+        height: 163px !important;
+    }
+}
