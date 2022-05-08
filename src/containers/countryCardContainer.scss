@@ -1,22 +1,15 @@
 @import '../index.scss';
 
 .country_card_container {
-    .loader_container {
-        width: 100%;
-        height: calc(100vh - 161px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        span {
-            margin-top: -5rem;
-        }
-    }
-    .err-message-container {
+    .no_country_err-message-container {
         width: 100%;
         height: calc(100vh - 161px);
         text-align: center;
         letter-spacing: 1px;
+    }
+
+    .row {
+        min-height: calc(100vh - 161px);
     }
     .country-card-link {
         color: unset;
@@ -28,7 +21,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    .err-message-container {
+    .no_country_err-message-container {
         font-size: 15px;
     }
 }

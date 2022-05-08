@@ -7,9 +7,36 @@
 .main-container {
     background-color: $bg-dark;
     color: $dark-mode-text-color;
+
+    .err-message-container {
+        width: 100%;
+        height: calc(100vh - 57px);
+        text-align: center;
+        letter-spacing: 1px;
+        padding-top: 3rem;
+    }
+
+    .loader_container {
+        width: 100%;
+        height: calc(100vh - 57px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            margin-top: -5rem;
+        }
+    }
 }
 
 .main-container.light-mode {
     background-color: $bg-light;
     color: $light-mode-text-color;
+}
+
+@media screen and (max-width: 480px) {
+    .err-message-container p {
+        font-size: 13px;
+        padding: 0 1rem;
+    }
 }

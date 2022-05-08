@@ -45,7 +45,7 @@ const CountryCardDetails = ({
 
     return (
         <div className='detail__card'>
-            <div className='back__button' onClick={() => navigate('/')}>
+            <div className='back__button' onClick={() => navigate(-1)}>
                 <BiArrowBack /> Back
             </div>
             <div className='inner__card container-fluid p-0'>
@@ -57,7 +57,7 @@ const CountryCardDetails = ({
                         <h3 className='inner__card-title align-self-start align-self-md-center'>
                             {country}
                         </h3>
-                        <div className='row align-self-start'>
+                        <div className='row align-self-start w-100'>
                             <div className='inner__card__body__left col-md-6 mb-3 mb-md-0'>
                                 <p className='mb-2 inner__card__native-name'>
                                     Native Name : <span>{nativeName}</span>

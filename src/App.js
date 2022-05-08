@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Navbar, Header } from './components';
 import CountryCardContainer from './containers/CountryCardContainer';
 import CountryCardDetails from './components/countryCard/CountryCardDetails';
+import { ClipLoader } from 'react-spinners';
 
 export const filterCountryContext = createContext();
 export const filterCountryByRegionContext = createContext();
@@ -13,7 +14,7 @@ const App = () => {
     const [darkMode, setDarkMode] = useState(
         localStorage.getItem('theme')
             ? localStorage.getItem('theme') === 'true'
-            : true
+            : false
     );
 
     const [data, setData] = useState(null);
@@ -38,6 +39,7 @@ const App = () => {
             .catch((_) => {
                 setLoading(false);
                 setErr('something went wrong !');
+                document.querySelector('.header').style.display = 'none';
             });
     }, []);
 
@@ -89,15 +91,41 @@ const App = () => {
         setSaveFilteredCountries(filteredCountryByRegion);
     };
 
+    const color = darkMode ? 'white' : 'black';
+
     return (
         <div
             className={`app main-container ${
                 darkMode ? 'dark-mode' : 'light-mode'
             }`}
         >
-            <Navbar darkMode={darkMode} handleDarkMode={handleDarkMode} />
             <BrowserRouter>
+                <Navbar darkMode={darkMode} handleDarkMode={handleDarkMode} />
+                {err && (
+                    <div className='err-message-container'>
+                        <p>
+                            {err} 🥺
+                            <p>
+                                please check your internet connection and try
+                                again.
+                            </p>
+                        </p>
+                    </div>
+                )}
+                {loading && (
+                    <div className='loader_container'>
+                        <ClipLoader color={color} loading={loading} />
+                    </div>
+                )}
                 <Routes>
+                    <Route
+                        path='*'
+                        element={
+                            <div className='err-message-container'>
+                                wrong url BRO! 🥺
+                            </div>
+                        }
+                    />
                     <Route
                         path='/'
                         element={
@@ -111,14 +139,11 @@ const App = () => {
                                     <filterCountryByRegionContext.Provider
                                         value={filterByRegion}
                                     >
-                                        <Header />
+                                        {data && <Header />}
                                     </filterCountryByRegionContext.Provider>
                                 </filterCountryContext.Provider>
                                 <CountryCardContainer
-                                    darkMode={darkMode}
                                     data={data && filteredCountriesByRegion}
-                                    loading={loading}
-                                    err={err}
                                     noCountry={noCountry}
                                 />
                             </>
@@ -128,7 +153,7 @@ const App = () => {
                     {data &&
                         data.map((dataObj) => (
                             <Route
-                                path={dataObj.alpha3Code}
+                                path={`/${dataObj.alpha3Code}`}
                                 key={dataObj.alpha3Code}
                                 element={
                                     <CountryCardDetails
