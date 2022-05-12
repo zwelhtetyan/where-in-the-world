@@ -1,11 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import axios from 'axios';
 import { Navbar, Header } from './components';
 import CountryCardContainer from './containers/CountryCardContainer';
 import CountryCardDetails from './components/countryCard/CountryCardDetails';
 import { ClipLoader } from 'react-spinners';
+import ScrollToTop from './utilities/ScrollToTop';
 
 export const filterCountryContext = createContext();
 export const filterCountryByRegionContext = createContext();
@@ -99,24 +100,24 @@ const App = () => {
                 darkMode ? 'dark-mode' : 'light-mode'
             }`}
         >
-            <BrowserRouter>
-                <Navbar darkMode={darkMode} handleDarkMode={handleDarkMode} />
-                {err && (
-                    <div className='err-message-container'>
+            <ScrollToTop>
+        
+            <Navbar darkMode={darkMode} handleDarkMode={handleDarkMode} />
+            {err && (
+                <div className='err-message-container'>
+                    <p>
+                        {err} 🥺
                         <p>
-                            {err} 🥺
-                            <p>
-                                please check your internet connection and try
-                                again.
-                            </p>
+                            please check your internet connection and try again.
                         </p>
-                    </div>
-                )}
-                {loading && (
-                    <div className='loader_container'>
-                        <ClipLoader color={color} loading={loading} />
-                    </div>
-                )}
+                    </p>
+                </div>
+            )}
+            {loading && (
+                <div className='loader_container'>
+                    <ClipLoader color={color} loading={loading} />
+                </div>
+            )}
                 <Routes>
                     <Route
                         path='*'
@@ -175,7 +176,7 @@ const App = () => {
                             />
                         ))}
                 </Routes>
-            </BrowserRouter>
+            </ScrollToTop>
         </div>
     );
 };

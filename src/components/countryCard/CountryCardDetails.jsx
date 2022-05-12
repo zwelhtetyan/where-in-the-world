@@ -1,5 +1,5 @@
 import React from 'react';
-import { BiArrowBack, BiJoystick } from 'react-icons/bi';
+import { BiArrowBack } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 import './countryCardDetails.scss';
 
