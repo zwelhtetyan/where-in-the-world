@@ -6,7 +6,6 @@ import { Navbar, Header } from './components';
 import CountryCardContainer from './containers/CountryCardContainer';
 import CountryCardDetails from './components/countryCard/CountryCardDetails';
 import { ClipLoader } from 'react-spinners';
-import ScrollToTop from './utilities/ScrollToTop';
 
 export const filterCountryContext = createContext();
 export const filterCountryByRegionContext = createContext();
