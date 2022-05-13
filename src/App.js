@@ -100,8 +100,6 @@ const App = () => {
                 darkMode ? 'dark-mode' : 'light-mode'
             }`}
         >
-            <ScrollToTop>
-        
             <Navbar darkMode={darkMode} handleDarkMode={handleDarkMode} />
             {err && (
                 <div className='err-message-container'>
@@ -118,65 +116,64 @@ const App = () => {
                     <ClipLoader color={color} loading={loading} />
                 </div>
             )}
-                <Routes>
-                    <Route
-                        path='*'
-                        element={
-                            <div className='err-message-container'>
-                                wrong url BRO! 🥺
-                            </div>
-                        }
-                    />
-                    <Route
-                        path='/'
-                        element={
-                            <>
-                                <filterCountryContext.Provider
-                                    value={{
-                                        userSearchWord,
-                                        setUserSearchWord,
-                                    }}
+            <Routes>
+                <Route
+                    path='*'
+                    element={
+                        <div className='err-message-container'>
+                            wrong url BRO! 🥺
+                        </div>
+                    }
+                />
+                <Route
+                    path='/'
+                    element={
+                        <>
+                            <filterCountryContext.Provider
+                                value={{
+                                    userSearchWord,
+                                    setUserSearchWord,
+                                }}
+                            >
+                                <filterCountryByRegionContext.Provider
+                                    value={filterByRegion}
                                 >
-                                    <filterCountryByRegionContext.Provider
-                                        value={filterByRegion}
-                                    >
-                                        {data && <Header />}
-                                    </filterCountryByRegionContext.Provider>
-                                </filterCountryContext.Provider>
-                                <CountryCardContainer
-                                    data={data && filteredCountriesByRegion}
-                                    noCountry={noCountry}
-                                />
-                            </>
-                        }
-                    />
-
-                    {data &&
-                        data.map((dataObj) => (
-                            <Route
-                                path={`/${dataObj.alpha3Code}`}
-                                key={dataObj.alpha3Code}
-                                element={
-                                    <CountryCardDetails
-                                        key={dataObj.alpha3Code}
-                                        data={data}
-                                        flag={dataObj.flags.png}
-                                        country={dataObj.name}
-                                        nativeName={dataObj.nativeName}
-                                        population={dataObj.population}
-                                        region={dataObj.region}
-                                        subRegion={dataObj.subRegion}
-                                        capital={dataObj.capital}
-                                        domain={dataObj.topLevelDomain}
-                                        currency={dataObj.currencies}
-                                        language={getLanguage(dataObj)}
-                                        borders={dataObj.borders}
-                                    />
-                                }
+                                    {data && <Header />}
+                                </filterCountryByRegionContext.Provider>
+                            </filterCountryContext.Provider>
+                            <CountryCardContainer
+                                data={data && filteredCountriesByRegion}
+                                noCountry={noCountry}
                             />
-                        ))}
-                </Routes>
-            </ScrollToTop>
+                        </>
+                    }
+                />
+
+                {data &&
+                    data.map((dataObj) => (
+                        <Route
+                            path={`/${dataObj.alpha3Code}`}
+                            key={dataObj.alpha3Code}
+                            element={
+                                <CountryCardDetails
+                                    key={dataObj.alpha3Code}
+                                    data={data}
+                                    flag={dataObj.flags.png}
+                                    country={dataObj.name}
+                                    nativeName={dataObj.nativeName}
+                                    population={dataObj.population}
+                                    region={dataObj.region}
+                                    subRegion={dataObj.subRegion}
+                                    capital={dataObj.capital}
+                                    domain={dataObj.topLevelDomain}
+                                    currency={dataObj.currencies}
+                                    language={getLanguage(dataObj)}
+                                    borders={dataObj.borders}
+                                />
+                            }
+                        />
+                    ))}
+            </Routes>
         </div>
     );
 };
