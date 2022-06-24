@@ -22,9 +22,13 @@
         color: $dark-mode-text-color;
         height: 40px;
         width: 300px;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
+        border-radius: 0 5px 5px 0;
+
+        &[type='search'] {
+            -webkit-appearance: none;
+        }
     }
+
     ::-webkit-search-cancel-button {
         padding-right: 10px;
     }

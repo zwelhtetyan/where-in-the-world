@@ -91,6 +91,7 @@ const App = () => {
         setSaveFilteredCountries(filteredCountryByRegion);
     };
 
+    //spinner color
     const color = darkMode ? 'white' : 'black';
 
     return (

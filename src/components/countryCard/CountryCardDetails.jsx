@@ -111,6 +111,7 @@ const CountryCardDetails = ({
                                                     <img
                                                         src={obj.flag}
                                                         className='border__country'
+                                                        alt='border__country'
                                                     />
                                                 </Link>
                                             )
