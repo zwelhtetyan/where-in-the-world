@@ -1,10 +1,14 @@
 import React from 'react';
 import './navbar.scss';
+import {useNavigate} from "react-router-dom";
 
 const Navbar = ({ darkMode, handleDarkMode }) => {
+
+    const navigate = useNavigate();
+
     return (
-        <div className='navbar py-3 px-md-5 px-3'>
-            <h5 className='m-0'>Where in the world?</h5>
+        <div className='navbar py-3 px-md-5 px-3 fixed-top'>
+            <h5 className='m-0' onClick={() => navigate('/')} style={{cursor: 'pointer'}}>Where in the world?</h5>
             <div className='day-night d-flex align-item-center'>
                 <div className='mode' onClick={handleDarkMode}>
                     <span className='sun'>🌞</span>

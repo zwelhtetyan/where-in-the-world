@@ -48,6 +48,14 @@ const App = () => {
         setDarkMode((darkMode) => !darkMode);
     };
 
+    // change body background
+    useEffect(() => {
+        const bg_light = 'hsl(0, 0%, 98%)'
+        const bg_dark = 'hsl(207, 26%, 17%)'
+
+        document.body.style.background = darkMode ? bg_dark : bg_light
+    }, [darkMode])
+
     //save theme in localStorage
     useEffect(() => {
         localStorage.setItem('theme', darkMode);
@@ -111,11 +119,13 @@ const App = () => {
                     </p>
                 </div>
             )}
+
             {loading && (
                 <div className='loader_container'>
                     <ClipLoader color={color} loading={loading} />
                 </div>
             )}
+
             <Routes>
                 <Route
                     path='*'

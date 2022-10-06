@@ -7,6 +7,9 @@
 .main-container {
     background-color: $bg-dark;
     color: $dark-mode-text-color;
+    padding-top: 50px;
+    max-width: 1500px;
+    margin: 0 auto;
 
     .err-message-container {
         width: 100%;
