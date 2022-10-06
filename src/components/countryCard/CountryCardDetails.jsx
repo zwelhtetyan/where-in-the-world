@@ -49,7 +49,7 @@ const CountryCardDetails = ({
 
    return (
       <div className='detail__card'>
-         <div className='back__button' onClick={() => navigate('/')}>
+         <div className='back__button' onClick={() => navigate(-1)}>
             <BiArrowBack /> Back
          </div>
          <div className='inner__card container-fluid p-0'>
