@@ -19,7 +19,11 @@ const CountryCardDetails = ({
    borders,
 }) => {
    // scroll top
-   useEffect(() => window.scrollTo(0, 0));
+   useEffect(() => {
+      const interval = setTimeout(() => window.scrollTo(0, 0), 10);
+
+      return () => clearTimeout(interval);
+   }, []);
 
    function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
